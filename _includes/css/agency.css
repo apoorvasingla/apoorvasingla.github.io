@@ -4,6 +4,11 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+@font-face{
+    font-family: "Stylus";
+    src: url('fonts/stylu.ttf');
+}
+
 body {
     overflow-x: hidden;
     font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -276,15 +281,15 @@ header {
 }
 
 header .intro-text {
-    padding-top: 100px;
+    padding-top: 150px;
     padding-bottom: 50px;
+    margin-left:0px;
 }
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    font-family: {{ site.data.template.font.secondary }};
+    font-family: {{ site.data.template.font.tertiary }};
     font-size: 22px;
-    font-style: italic;
     line-height: 22px;
 }
 
@@ -297,28 +302,48 @@ header .intro-text .intro-heading {
     line-height: 50px;
 }
 
+header .intro-text img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+header .container-sidebar {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-left: 0px;
+    width: 100%;
+}
+
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 300px;
+        padding-top: 200px;
         padding-bottom: 200px;
     }
 
     header .intro-text .intro-lead-in {
         margin-bottom: 25px;
-        font-family: {{ site.data.template.font.secondary }};
-        font-size: 40px;
-        font-style: italic;
+        font-size: 30px;
         line-height: 40px;
     }
 
     header .intro-text .intro-heading {
         margin-bottom: 50px;
-        text-transform: uppercase;
-        font-family: {{ site.data.template.font.primary }};
         font-size: 75px;
         font-weight: 700;
         line-height: 75px;
     }
+
+    header .intro-text img {
+        width: 200px;
+        margin-bottom: 10px;
+    }
+
+    header .container-sidebar {
+        margin-left: 0px;
+        width: 500px;
+    }
+
 }
 
 section {
