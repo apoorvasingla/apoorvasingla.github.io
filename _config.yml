@@ -62,3 +62,21 @@ address:
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+skills:
+  - name: Autodesk Autocad
+    percent: 85
+  - name: Autodesk Revit
+    percent: 50
+  - name: Adobe Photoshop
+    percent: 85
+  - name: Google Sketchup
+    percent: 80
+  - name: Lumion
+    percent: 50
+  - name: V-ray
+    percent: 70
+  - name: Manual Sketching
+    percent: 75
+  - name: Microsoft Office
+    percent: 90

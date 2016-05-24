@@ -1,12 +1,35 @@
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: fed136
-  secondary: fec503   
+  primary: 009688
+  secondary: 00897B   
   secondary-dark: 333
   muted: 777
+  skill: 009688
 
 # Font Families
 font:
   primary: 'Montserrat, "Helvetica Neue",Helvetica,Arial,sans-serif'
   secondary: '"Droid Serif", "Helvetica Neue", Helvetica,Arial,sans-serif'
   tertiary: '"Stylus", Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif'
+
+skill:
+  height: 400
+  vr-height: 75
+  color:
+    name: 009688
+    percent: ffffff
+  box:
+    width: 125
+  bar:
+    width: 65
+  margin:
+    top: 130        #(=vr-height+55)
+  mobile:
+    height: 200
+    vr-height: 40
+    box:
+      width: 70
+    bar:
+      width: 40
+    margin:
+      top: 80       #(=vr-height+40)

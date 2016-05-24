@@ -1,4 +1,6 @@
-/*!
+{
+    transition_delay: 1000
+}/*!
  * Start Bootstrap - Agnecy Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
@@ -35,3 +37,43 @@ $('div.modal').on('show.bs.modal', function() {
 		}
 	}
 });
+
+$('.skills-box').waypoint({
+    handler: function(event, direction) {
+        $('.progress .progress-bar').progressbar({});
+    },
+    offset: '60%'
+});
+
+$(document).ready(function($){
+    $('.all-skills').owlCarousel({
+        slideSpeed: 400,
+         itemsCustom: [
+             [0, 4],
+             [400, 4],
+             [500, 5],
+             [620, 6],
+             [700, 8],
+             [992, 5],
+             [1200, 6]
+         ],
+    });
+
+    var sklData = $('.all-skills').data('owlCarousel');
+
+    var sklTgt = $('.nav-btn').find('.go');
+    sklTgt.on('click', function(e){
+        e.preventDefault();
+        if( $(this).hasClass('go-left') ) {
+            sklData.prev();
+        } else {
+            sklData.next();
+        }
+    });
+});
+
+$(document).ready(
+  function() { 
+    $("html").niceScroll();
+  }
+);
