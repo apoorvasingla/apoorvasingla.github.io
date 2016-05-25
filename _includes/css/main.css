@@ -331,7 +331,7 @@ header .intro-text img {
 }
 
 header .container-sidebar {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.45);
     margin-left: 0px;
     width: 100%;
 }
@@ -371,7 +371,7 @@ header .container-sidebar {
 }
 
 section {
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 section h2.section-heading {
@@ -391,7 +391,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 50px 0;
     }
 }
 
@@ -812,6 +812,18 @@ ul.social-buttons li a:active {
     transform: rotate(90deg);
 }
 
+section#skills {
+    padding: 0;
+    background: url('img/skills-bg.jpg');
+}
+
+section#skills .overlay {
+    padding: 50px 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(256, 256, 256, 0.92);
+}
+
 section#skills .skills-box .single-skill-box {
     width: {{ site.data.template.skill.mobile.box.width }}px; /*125px*/
 }
@@ -886,6 +898,14 @@ section#skills .nav-side {
 }
 
 @media(min-width:768px) {
+    section#skills .overlay {
+        padding: 75px 0;
+    }
+
+    section#skills .section-heading {
+        margin-bottom: 0;
+    }
+
     section#skills .skills-box .single-skill-box {
         width: {{ site.data.template.skill.box.width }}px; /*125px*/
     }
@@ -1012,8 +1032,7 @@ section#skills .nav-side {
 }
 
 #projects .project {
-    margin: 0;
-    margin-bottom: {{ site.data.template.project.margin.bottom }}px;
+    margin: {{ site.data.template.project.margin.topbottom }}px 0;
 }
 
 #projects .project-tile {
@@ -1054,7 +1073,7 @@ section#skills .nav-side {
     }
 
     #projects .project {
-        margin-bottom: {{ site.data.template.project.mobile.margin.bottom }}px;
+        margin: {{ site.data.template.project.mobile.margin.bottom }}px 0;
     }
 
     #projects .project-tile {
@@ -1088,4 +1107,8 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #{{ site.data.template.color.primary }};
+}
+
+.white {
+    color: white;
 }
