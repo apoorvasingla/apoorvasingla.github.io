@@ -77,3 +77,15 @@ $(document).ready(
     $("html").niceScroll();
   }
 );
+
+var lastScrollTop = 0;
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+   if (st > lastScrollTop){
+       $('.navbar-toggle:visible').collapse();
+       $('nav.navbar').addClass("hide-navbar");
+   } else {
+       $('nav.navbar').removeClass("hide-navbar");
+   }
+   lastScrollTop = st;
+});

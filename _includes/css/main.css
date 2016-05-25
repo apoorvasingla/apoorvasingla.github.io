@@ -179,6 +179,13 @@ fieldset[disabled] .btn-xl.active {
     border-color: transparent;
     background-color: #222;
     box-shadow: none;
+    -webkit-transition: top .5s;
+    -moz-transition: top .5s;
+    transition: top .5s;
+}
+
+.navbar-default.hide-navbar {
+    top: -100px;
 }
 
 .navbar-default .navbar-brand {
@@ -209,6 +216,10 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
     background-color: #{{ site.data.template.color.primary }};
+}
+
+.navbar-default .nav li:hover {
+    background-color: inherit;
 }
 
 .navbar-default .nav li a {
@@ -243,9 +254,9 @@ fieldset[disabled] .btn-xl.active {
         padding: 25px 0;
         border: 0;
         background-color: transparent;
-        -webkit-transition: padding .3s;
-        -moz-transition: padding .3s;
-        transition: padding .3s;
+        -webkit-transition: padding .3s, top .5s;
+        -moz-transition: padding .3s, top .5s;
+        transition: padding .3s, top .5s;
     }
 
     .navbar-default .navbar-brand {
