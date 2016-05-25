@@ -33,3 +33,26 @@ skill:
       width: 40
     margin:
       top: 80       #(=vr-height+40)
+
+
+project:
+  thumbnail:
+    size: 300
+    h3:
+      height: 120
+      padding: 85
+  margin:
+    bottom: 60
+  hover:
+    color: rgba(0,150,136, 0.7)
+
+  mobile:
+    thumbnail:
+      size: 200
+      h3:
+        height: 80
+        padding: 55
+    margin:
+      bottom: 33
+    hover:
+      color: rgba(0,150,136, 0.7)
