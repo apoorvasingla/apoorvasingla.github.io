@@ -7,12 +7,19 @@
  */
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
+
+var pageScrollClicked = false;
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
         }, 1500, 'easeInOutExpo');
+        pageScrollClicked = true;
+        setTimeout(function(){
+          pageScrollClicked = false;
+          $('nav.navbar').addClass("hide-navbar");        
+        }, 1500);
         event.preventDefault();
     });
 });
@@ -85,8 +92,10 @@ $(window).scroll(function(event){
        $('.navbar-toggle:visible').collapse();
        $('nav.navbar').addClass("hide-navbar");
    } else {
-       $('nav.navbar').removeClass("hide-navbar");
-   }
+    if (pageScrollClicked == false){
+           $('nav.navbar').removeClass("hide-navbar");
+       }
+     }
    lastScrollTop = st;
 });
 
