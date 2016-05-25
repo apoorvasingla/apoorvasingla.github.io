@@ -56,3 +56,6 @@ project:
       topbottom: 33
     hover:
       color: rgba(0,150,136, 0.7)
+
+
+wow-delay: 0.3

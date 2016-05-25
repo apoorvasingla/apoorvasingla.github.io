@@ -89,3 +89,12 @@ $(window).scroll(function(event){
    }
    lastScrollTop = st;
 });
+
+$('document').ready(
+  function() {
+    new WOW({
+      offset: 200,
+      mobile: false
+    }).init();
+  }
+);

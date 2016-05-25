@@ -8,7 +8,7 @@
             </div>
             <div class="row margin-30">
             {% for post in site.posts %}
-                <div class="col-md-4 col-sm-6 project">
+                <div class="col-md-4 col-sm-6 project wow zoomIn" data-wow-duration="0.7s" data-wow-delay="{{ forloop.index | minus: 1 | modulo: 3 | times: site.data.template.wow-delay }}s">
                     <div class="project-tile">
                         <div class="ch-item" style="background-image: url('/img/projects/{{ post.thumbnail }}');">
                             <div class="ch-info">
