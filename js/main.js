@@ -1,6 +1,7 @@
 {
     transition_delay: 1000
-}/*!
+}
+/*!
  * Start Bootstrap - Agnecy Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
@@ -18,7 +19,7 @@ $(function() {
         pageScrollClicked = true;
         setTimeout(function(){
           pageScrollClicked = false;
-          $('nav.navbar').addClass("hide-navbar");        
+            $('nav.navbar').addClass("hide-navbar");
         }, 1500);
         event.preventDefault();
     });
@@ -35,14 +36,14 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 $('div.modal').on('show.bs.modal', function() {
-	var modal = this;
-	var hash = modal.id;
-	window.location.hash = hash;
-	window.onhashchange = function() {
-		if (!location.hash){
-			$(modal).modal('hide');
-		}
-	}
+    var modal = this;
+    var hash = modal.id;
+    window.location.hash = hash;
+    window.onhashchange = function() {
+        if (!location.hash){
+            $(modal).modal('hide');
+        }
+    }
 });
 
 $('.skills-box').waypoint({
@@ -80,30 +81,30 @@ $(document).ready(function($){
 });
 
 $(document).ready(
-  function() { 
-    $("html").niceScroll();
-  }
+    function() {
+        $("html").niceScroll();
+    }
 );
 
 var lastScrollTop = 0;
 $(window).scroll(function(event){
-   var st = $(this).scrollTop();
-   if (st > lastScrollTop){
-       $('.navbar-toggle:visible').collapse();
-       $('nav.navbar').addClass("hide-navbar");
-   } else {
+    var st = $(this).scrollTop();
+    if (st > lastScrollTop){
+        $('.navbar-toggle:visible').collapse();
+        $('nav.navbar').addClass("hide-navbar");
+    } else {
     if (pageScrollClicked == false){
-           $('nav.navbar').removeClass("hide-navbar");
-       }
+            $('nav.navbar').removeClass("hide-navbar");
+        }
      }
-   lastScrollTop = st;
+    lastScrollTop = st;
 });
 
 $('document').ready(
-  function() {
+    function() {
     new WOW({
-      offset: 200,
-      mobile: false
+        offset: 200,
+        mobile: false
     }).init();
-  }
+    }
 );
