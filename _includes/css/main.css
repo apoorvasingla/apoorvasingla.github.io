@@ -427,12 +427,11 @@ section h3.section-subheading {
 }
 
 .timeline>li .timeline-panel {
-    float: right;
     position: relative;
-    width: 100%;
-    padding: 0 20px 0 100px;
+    padding: 5px;
     background: #ffffff;
     border-radius: 5px;
+    margin-left: 95px;
     box-shadow: 0 3px 0 rgba(0,0,0,0.3);
 }
 
@@ -453,8 +452,8 @@ section h3.section-subheading {
     border: 7px solid #f1f1f1;
     border-radius: 100%;
     text-align: center;
-    color: #fff;
-    background-color: #{{ site.data.template.color.primary }};
+    background-color: #ffffff;
+    color: #4E4E4E;
 }
 
 .timeline>li .timeline-image h4 {
@@ -464,8 +463,8 @@ section h3.section-subheading {
 }
 
 .timeline>li.timeline-inverted>.timeline-panel {
-    float: right;
-    padding: 0 20px 0 100px;
+    padding: 5px;
+    margin-left: 95px;
 }
 
 .timeline>li.timeline-inverted>.timeline-panel:after {
@@ -482,12 +481,17 @@ section h3.section-subheading {
 .timeline .timeline-heading h4 {
     margin-top: 0;
     color: inherit;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .timeline .timeline-heading h4.subheading {
     text-transform: none;
-    font-size: 16px;
+    font-size: 14px;
+}
+
+.timeline .timeline-body p {
+    font-size: 11px;
+    font-weight: 600;
 }
 
 .timeline-body .academic {
@@ -515,11 +519,12 @@ section h3.section-subheading {
     content: '';
     position: absolute;
     top: 33px;
+    left: auto;
     right: 100%;
     height: 0;
     width: 0;
     border: 7px solid transparent;
-    border-left: 7px solid white;
+    border-right-color: white;
 }
 
 @media(min-width:768px) {
@@ -537,6 +542,7 @@ section h3.section-subheading {
         float: left;
         width: 41%;
         padding: 15px;
+        margin-left: 0px;
     }
 
     .timeline>li .timeline-image {
@@ -544,8 +550,6 @@ section h3.section-subheading {
         width: 100px;
         height: 100px;
         margin-left: -50px;
-        background-color: #ffffff;
-        color: #4E4E4E;
     }
 
     .timeline>li .timeline-image h4 {
@@ -555,25 +559,32 @@ section h3.section-subheading {
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
+        float: right;
         margin-left: auto;
         padding: 15px;
     }
 
     .timeline .timeline-body p {
         font-size: 13px;
-        font-weight: 600;
     }
 
     .timeline-panel::before {
         top: 43px;
-        left: 100%;
     }
 
-    .timeline li:nth-child(even) .timeline-panel::before {
-        left: auto;
-        right: 100%;
+    .timeline li:nth-child(odd) .timeline-panel::before {
+        right: auto;
+        left: 100%;
         border-color: transparent;
-        border-right-color: white;
+        border-left-color: white;
+    }
+
+    .timeline .timeline-heading h4 {
+        font-size: 14px;
+    }
+
+    .timeline .timeline-heading h4.subheading {
+        font-size: 16px;
     }
 }
 
@@ -1009,6 +1020,7 @@ section#skills .nav-side {
     border-radius: 50%;
     position: relative;
     cursor: default;
+    background-size: cover;
     box-shadow: 
         inset 0 0 0 0 {{ site.data.template.project.hover.color }},
         inset 0 0 0 16px rgba(255,255,255,0.6),
