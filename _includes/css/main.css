@@ -11,7 +11,7 @@
 
 body {
     overflow-x: hidden;
-    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #{{ site.data.template.color.secondary-dark }};
 }
 
@@ -396,6 +396,7 @@ section h3.section-subheading {
     position: relative;
     padding: 0;
     list-style: none;
+    color: #4E4E4E;
 }
 
 .timeline:before {
@@ -430,14 +431,9 @@ section h3.section-subheading {
     position: relative;
     width: 100%;
     padding: 0 20px 0 100px;
-    text-align: left;
-}
-
-.timeline>li .timeline-panel:before {
-    right: auto;
-    left: -15px;
-    border-right-width: 15px;
-    border-left-width: 0;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.3);
 }
 
 .timeline>li .timeline-panel:after {
@@ -470,14 +466,6 @@ section h3.section-subheading {
 .timeline>li.timeline-inverted>.timeline-panel {
     float: right;
     padding: 0 20px 0 100px;
-    text-align: left;
-}
-
-.timeline>li.timeline-inverted>.timeline-panel:before {
-    right: auto;
-    left: -15px;
-    border-right-width: 15px;
-    border-left-width: 0;
 }
 
 .timeline>li.timeline-inverted>.timeline-panel:after {
@@ -494,31 +482,44 @@ section h3.section-subheading {
 .timeline .timeline-heading h4 {
     margin-top: 0;
     color: inherit;
+    font-size: 14px;
 }
 
 .timeline .timeline-heading h4.subheading {
     text-transform: none;
+    font-size: 16px;
 }
 
 .timeline-body .academic {
-    color: ;
+    color: #EC767C;
 }
 
 .timeline-body .achievements {
-    color: ;
+    color: #EABE3A;
 }
 
 .timeline-body .experience {
-    color: ;
+    color: #49D249;
 }
 
 .timeline-body .extracurricular {
-    color: ;
+    color: #6473EF;
 }
 
 .timeline .timeline-body>p,
 .timeline .timeline-body>ul {
     margin-bottom: 0;
+}
+
+.timeline-panel::before {
+    content: '';
+    position: absolute;
+    top: 33px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-left: 7px solid white;
 }
 
 @media(min-width:768px) {
@@ -529,13 +530,13 @@ section h3.section-subheading {
     .timeline>li {
         margin-bottom: 50px;
         min-height: 100px;
+        display: flex;
     }
 
     .timeline>li .timeline-panel {
         float: left;
         width: 41%;
-        padding: 0 20px 20px 30px;
-        text-align: right;
+        padding: 15px;
     }
 
     .timeline>li .timeline-image {
@@ -543,6 +544,8 @@ section h3.section-subheading {
         width: 100px;
         height: 100px;
         margin-left: -50px;
+        background-color: #ffffff;
+        color: #4E4E4E;
     }
 
     .timeline>li .timeline-image h4 {
@@ -552,9 +555,25 @@ section h3.section-subheading {
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
-        float: right;
-        padding: 0 30px 20px 20px;
-        text-align: left;
+        margin-left: auto;
+        padding: 15px;
+    }
+
+    .timeline .timeline-body p {
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .timeline-panel::before {
+        top: 43px;
+        left: 100%;
+    }
+
+    .timeline li:nth-child(even) .timeline-panel::before {
+        left: auto;
+        right: 100%;
+        border-color: transparent;
+        border-right-color: white;
     }
 }
 
@@ -564,7 +583,7 @@ section h3.section-subheading {
     }
 
     .timeline>li .timeline-panel {
-        padding: 0 20px 20px;
+        padding: 20px;
     }
 
     .timeline>li .timeline-image {
@@ -580,7 +599,11 @@ section h3.section-subheading {
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
-        padding: 0 20px 20px;
+        padding: 20px;
+    }
+
+    .timeline-panel::before {
+        top: 68px;
     }
 }
 
@@ -590,7 +613,7 @@ section h3.section-subheading {
     }
 
     .timeline>li .timeline-panel {
-        padding: 0 20px 20px 100px;
+        padding: 25px;
     }
 
     .timeline>li .timeline-image {
@@ -604,13 +627,16 @@ section h3.section-subheading {
     }
 
     .timeline>li.timeline-inverted>.timeline-panel {
-        padding: 0 100px 20px 20px;
+        padding: 25px;
+    }
+
+    .timeline-panel::before {
+        top: 78px;
     }
 }
 
 .team-member {
     margin-bottom: 50px;
-    text-align: center;
 }
 
 .team-member img {

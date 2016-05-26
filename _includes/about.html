@@ -4,7 +4,6 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
             <div class="row">
@@ -12,7 +11,7 @@
                     <ul class="timeline">
                         {% for item in site.data.about.items %}
                             {% assign inverted = forloop.index | modulo: 2 %}
-                            <li class={% if inverted == 0 %}"timeline-inverted"{% endif %}>
+                            <li class="{% if inverted == 0 %}timeline-inverted{% endif %} wow zoomIn" data-wow-duration="0.7s">
                                 <div class="timeline-image">
                                     <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
                                 </div>
@@ -23,16 +22,24 @@
                                     </div>
                                     <div class="timeline-body">
                                         <p class="text-muted">
-                                            <span class="academic">{{ item.academic }}</span>
-                                            <span class="achievements">{{ item.achievement }}</span>
-                                            <span class="experience">{{ item.experience }}</span>
-                                            <span class="extracurricular">{{ item.extracurricular }}</span>
+                                            {% if item.academic %}
+                                            <span class="academic">{{ item.academic }}</span><br>
+                                            {% endif %}
+                                            {% if item.achievement %}
+                                            <span class="achievements">{{ item.achievement }}</span><br>
+                                            {% endif %}
+                                            {% if item.experience %}
+                                            <span class="experience">{{ item.experience }}</span><br>
+                                            {% endif %}
+                                            {% if item.extracurricular %}
+                                            <span class="extracurricular">{{ item.extracurricular }}</span><br>
+                                            {% endif %}
                                         </p>
                                     </div>
                                 </div>
                             </li>
                         {% endfor %}
-                        <li class="timeline-inverted">
+                        <li>
                             <div class="timeline-image">
                                 <h4>{{ site.data.about.last-item }}</h4>
                             </div>
