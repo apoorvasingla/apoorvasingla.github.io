@@ -500,6 +500,22 @@ section h3.section-subheading {
     text-transform: none;
 }
 
+.timeline-body .academic {
+    color: ;
+}
+
+.timeline-body .achievements {
+    color: ;
+}
+
+.timeline-body .experience {
+    color: ;
+}
+
+.timeline-body .extracurricular {
+    color: ;
+}
+
 .timeline .timeline-body>p,
 .timeline .timeline-body>ul {
     margin-bottom: 0;
@@ -511,7 +527,7 @@ section h3.section-subheading {
     }
 
     .timeline>li {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
         min-height: 100px;
     }
 
@@ -1076,6 +1092,11 @@ section#skills .nav-side {
         margin-left: 0;
         margin-right: 0;
     }
+}
+
+section#about {
+    background-color: #{{ site.data.template.color.primary }};
+    color: #ffffff;
 }
 
 ::-moz-selection {
