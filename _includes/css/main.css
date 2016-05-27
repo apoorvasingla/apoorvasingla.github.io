@@ -735,15 +735,24 @@ section#contact .text-danger {
 }
 
 footer {
-    padding: 25px 0;
+    padding: 30px 0 10px 0;
     text-align: center;
+    color: #ffffff;
+    background-color: #{{ site.data.template.color.primary }};
 }
 
+footer .row {
+    margin: 0px;
+}
+/*
+footer span.copyright, span.email, span.phone {
+}*/
+
 footer span.copyright {
+    font-family: {{ site.data.template.font.primary }};
     text-transform: uppercase;
     text-transform: none;
-    font-family: {{ site.data.template.font.primary }};
-    line-height: 40px;
+    font-size: 11px;
 }
 
 footer ul.quicklinks {
