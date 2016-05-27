@@ -1,0 +1,24 @@
+<!-- Single Project -->
+    <section id="single-project">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <article class="single-project-page">
+                        {% for image in page.images %}
+                            <div class="project-image">
+                                <img class="materialboxed" src="/img/apoorva.jpg">
+                            </div>
+                        {% endfor %}
+                    </article>
+                </div>
+                <div class="col-sm-4">
+                    <div class="about-project">
+                        <div class="card-panel">
+                            <h4>Brief</h4>
+                            <span>{{ page.content }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

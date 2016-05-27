@@ -1,0 +1,32 @@
+section#banner {
+    background-color: #{{ site.data.template.color.primary }};
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+section#banner .row {
+    margin: 0px;
+}
+
+section#banner .title{
+    font-size: 48px;
+    margin: 0 0 5px 0;
+}
+
+section#banner .description{
+    font-size: 16px;
+}
+
+section#single-project .project-image {
+    display: inline-block;
+    width: 32%;
+}
+
+section#single-project .project-image img {
+    width: 100%;
+    padding: 20px;
+}
+
+section#single-project .about-project {
+    margin-top: 20px;
+}
