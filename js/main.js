@@ -6,6 +6,8 @@
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 
+isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 navbar = {
     hide: function() {
         $('nav.navbar').addClass("hide-navbar");
@@ -19,6 +21,9 @@ navbar = {
         },
         show: function() {
             $('.navbar-collapse').collapse('show');
+        },
+        isVisible: function() {
+            return $('.navbar-collapse').is(':visible');
         }
     }
 }
@@ -103,7 +108,9 @@ bindUpDownScroll = function(){
     $(window).scroll(function(event){
         var st = $(this).scrollTop();
         if (pageScrollClicked == false) {
-            navbar.menu.hide();
+            if(isMobile && navbar.menu.isVisible()) {
+                navbar.menu.hide();
+            }
             if (st > lastScrollTop){
                 navbar.hide();
             } else {
