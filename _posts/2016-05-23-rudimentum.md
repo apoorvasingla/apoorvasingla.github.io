@@ -1,4 +1,6 @@
 ---
+
+layout: project
 title: RUDIMENTUM
 subtitle: Settlement of 40 Scientists, Mars
 thumbnail: rudimentum.jpg
