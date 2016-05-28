@@ -1,7 +1,7 @@
 ---
 
 layout: project
-title: RUDIMENTUM
+title: rudimentum
 subtitle: Settlement of 40 Scientists, Mars
 thumbnail: rudimentum.jpg
 project-date: Secondary Trophy, Zonals’13
