@@ -1,0 +1,22 @@
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="{{ "/css/materialize.min.css" | prepend: site.baseurl }}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{{ "/css/animate.min.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/css/fluidbox.min.css" | prepend: site.baseurl }}">
+
+    {% include {{ page.layout }}/css.html %}
+
+    <!-- {{ page.layout }} CSS -->
+    <link rel="stylesheet" href="{{ page.layout | prepend: site.baseurl | prepend: "/css/" | append: ".css" }}">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="{{ "/css/font-awesome/css/font-awesome.min.css" | prepend: site.baseurl }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>

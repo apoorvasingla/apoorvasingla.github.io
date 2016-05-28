@@ -6,7 +6,7 @@
 
 @font-face{
     font-family: "Stylus";
-    src: url('font/stylu.ttf');
+    src: url('../font/stylu.ttf');
 }
 
 body {

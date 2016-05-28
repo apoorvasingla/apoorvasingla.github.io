@@ -1,0 +1,15 @@
+    <!-- jQuery Version 1.11.0 -->
+    <script src="{{ "/js/jquery-1.11.0.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{{ "/js/classie.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/nicescroll.min.js" }}"></script>
+    <script src="{{ "/js/wow.min.js" }}"></script>
+
+    {% include {{ page.layout }}/js.html %}
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ page.layout | prepend: site.baseurl | prepend: "/js/" | append: ".js" }}"></script>
