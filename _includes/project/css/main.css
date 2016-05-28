@@ -31,6 +31,10 @@ section#single-project {
     padding: 25px 0;
 }
 
+section#single-project .col-sm-4 {
+    padding: 0;
+}
+
 section#single-project figure {
     display: inline-block;
     position: relative;
