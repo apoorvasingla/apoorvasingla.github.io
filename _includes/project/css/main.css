@@ -33,16 +33,34 @@ section#single-project {
 
 section#single-project figure {
     display: inline-block;
-    width: 48%;
+    position: relative;
+    width: calc(50% - 22px);
+    margin: 10px;
 }
 
 section#single-project figure img {
     width: 100%;
-    padding: 10px;
 }
 
 section#single-project .about-project {
     margin-top: 20px;
+}
+
+section#single-project .gallery figure figcaption {
+    display: none;
+    position: absolute;
+    top: 0;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: inset 0 67px 50px -30px rgba(0,0,0,0.7);
+}
+
+section#single-project .gallery figure:hover figcaption {
+    display: block;
 }
 
 @media(min-width: 768px) {
@@ -67,11 +85,13 @@ section#single-project .about-project {
     }
 
     section#single-project figure {
-        width: 32%;
+        width: calc(33% - 31px);
+        margin: 15px;
     }
+}
 
-    section#single-project figure img {
-        padding: 20px;
-    }
-
+.pswp__caption__center {
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
 }

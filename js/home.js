@@ -67,7 +67,7 @@ animations = {
     wow: function() {
         // Wow js to load projects
         new WOW({
-            offset: 200,
+            offset: 150,
             mobile: false
         }).init();
     },
