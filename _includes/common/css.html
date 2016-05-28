@@ -10,7 +10,8 @@
     {% include {{ page.layout }}/css.html %}
 
     <!-- {{ page.layout }} CSS -->
-    <link rel="stylesheet" href="{{ page.layout | prepend: site.baseurl | prepend: "/css/" | append: ".css" }}">
+    <link rel="stylesheet" href="{{ page.layout | prepend: "/css/" | prepend: site.baseurl | append: ".css" }}">
+    <link rel="stylesheet" href="{{ file }}" | prepend: site.baseurl}}>
 
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="{{ "/css/font-awesome/css/font-awesome.min.css" | prepend: site.baseurl }}">

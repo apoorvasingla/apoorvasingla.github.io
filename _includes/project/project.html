@@ -6,8 +6,8 @@
                     <article class="gallery"  itemscope itemtype="http://schema.org/ImageGallery">
                         {% for image in page.images %}
                             <figure itemprop="associatedMedia" class="wow zoomIn" data-wow-duration="0.7s" data-wow-delay="{{ forloop.index | minus: 1 | modulo: 3 | times: 0.3 }}s">
-                                <a href="/img/projects/{{ page.title }}/full/{{ image.file }}" itemprop="contentUrl" data-size="{{ image.size }}">
-                                    <img src="/img/projects/{{ page.title }}/thumbs/{{ image.file }}" itemprop="thumbnail" alt="{{ image.title }}" />
+                                <a href="{{ site.baseurl }}/img/projects/{{ page.title }}/full/{{ image.file }}" itemprop="contentUrl" data-size="{{ image.size }}">
+                                    <img src="{{ site.baseurl }}/img/projects/{{ page.title }}/thumbs/{{ image.file }}" itemprop="thumbnail" alt="{{ image.title }}" />
                                 </a>
                                 <figcaption itemprop="caption description">{{ image.title }}</figcaption>
                             </figure>
