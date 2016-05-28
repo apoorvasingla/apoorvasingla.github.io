@@ -3,13 +3,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <article class="single-project-page">
+                    <article class="gallery"  itemscope itemtype="http://schema.org/ImageGallery">
                         {% for image in page.images %}
-                            <div class="project-image">
-                                <a href="/img/projects/{{ page.title }}/full/{{ image.file }}" rel="gallery">
-                                    <img src="/img/projects/{{ page.title }}/full/{{ image.file }}" />
+                            <figure itemprop="associatedMedia">
+                                <a href="/img/projects/{{ page.title }}/full/{{ image.file }}" itemprop="contentUrl" data-size="1900x1344">
+                                    <img src="/img/projects/{{ page.title }}/thumbs/{{ image.file }}" itemprop="thumbnail" alt="Image description" />
                                 </a>
-                            </div>
+                                <figcaption itemprop="caption description">Image caption</figcaption>
+                            </figure>
                         {% endfor %}
                     </article>
                 </div>

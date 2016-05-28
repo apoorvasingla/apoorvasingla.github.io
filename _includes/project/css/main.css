@@ -31,12 +31,12 @@ section#single-project {
     padding: 25px 0;
 }
 
-section#single-project .project-image {
+section#single-project figure {
     display: inline-block;
     width: 48%;
 }
 
-section#single-project .project-image img {
+section#single-project figure img {
     width: 100%;
     padding: 10px;
 }
@@ -66,11 +66,11 @@ section#single-project .about-project {
         padding: 25px;
     }
 
-    section#single-project .project-image {
+    section#single-project figure {
         width: 32%;
     }
 
-    section#single-project .project-image img {
+    section#single-project figure img {
         padding: 20px;
     }
 

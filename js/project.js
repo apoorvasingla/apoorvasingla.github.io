@@ -3,7 +3,6 @@ function isMobile() {
 }
 
 $(document).ready(function(){
-    $('.project-image a').fluidbox();
     if(!isMobile()) {
         $('.about-project').sticky();
     }
