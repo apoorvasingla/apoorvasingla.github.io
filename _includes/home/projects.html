@@ -11,7 +11,7 @@
                 <div class="col-md-4 col-sm-6 project wow zoomIn" data-wow-duration="0.7s" data-wow-delay="{{ forloop.index | minus: 1 | modulo: 3 | times: site.data.template.wow-delay }}s">
                     <div class="project-tile">
                         <a href="{{ post.url }}">
-                        <div class="ch-item" style="background-image: url('/img/projects/{{ post.thumbnail }}');">
+                        <div class="ch-item" style="background-image: url('/img/projects/thumbs/{{ post.title }}.jpg');">
                             <div class="ch-info">
                                 <h3>{{ post.title }}</h3>
                                 <p>{{ post.subtitle }}</p>

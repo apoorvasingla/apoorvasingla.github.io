@@ -6,8 +6,8 @@
                     <article class="single-project-page">
                         {% for image in page.images %}
                             <div class="project-image">
-                                <a href="/img/apoorva.jpg" rel="gallery">
-                                    <img src="/img/apoorva.jpg" />
+                                <a href="/img/projects/{{ page.title }}/full/{{ image.file }}" rel="gallery">
+                                    <img src="/img/projects/{{ page.title }}/full/{{ image.file }}" />
                                 </a>
                             </div>
                         {% endfor %}
