@@ -10,8 +10,8 @@
             {% for post in site.posts %}
                 <div class="col-md-4 col-sm-6 project wow zoomIn" data-wow-duration="0.7s" data-wow-delay="{{ forloop.index | minus: 1 | modulo: 3 | times: site.data.template.wow-delay }}s">
                     <div class="project-tile">
-                        <a href="{{ post.url | prepend: site.baseurl }}">
-                        <div class="ch-item" style="background-image: url('{{ site.baseurl }}/img/projects/thumbs/{{ post.title }}.jpg');">
+                        <a href="{{ post.url | prepend: site.baseurl }}" class="circle">
+                        <div class="ch-item pointer" style="background-image: url('{{ site.baseurl }}/img/projects/thumbs/{{ post.title }}.jpg');">
                             <div class="ch-info">
                                 <h3>{{ post.title }}</h3>
                                 <p>{{ post.subtitle }}</p>
