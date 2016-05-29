@@ -175,6 +175,10 @@ fieldset[disabled] .btn-xl.active {
     background-color: #fff;
 }
 
+.btn-large i {
+    font-size: 24px;
+}
+
 .navbar-default {
     border-color: transparent;
     background-color: #222;

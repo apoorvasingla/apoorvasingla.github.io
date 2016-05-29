@@ -23,5 +23,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="project-navigation">
+                    <div class="col-sm-4">
+                        <a href="{{ page.previous.url | prepend: site.baseurl }}" ><i class="mdi-navigation-chevron-left"></i></a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="{{ "/#projects" | prepend: site.baseurl }}" ><i class="mdi-action-view-module"></i></a>
+                    </div>
+                    <div class="col-sm-4">
+                        <a href="{{ page.next.url | prepend: site.baseurl }}" ><i class="mdi-navigation-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
