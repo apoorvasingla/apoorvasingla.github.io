@@ -56,6 +56,10 @@ section#single-project {
     background-color: #fafafa;
 }
 
+section#single-project .col-sm-4{
+    padding: 0 0 0 10px;
+}
+
 section#single-project figure {
     display: inline-block;
     position: relative;

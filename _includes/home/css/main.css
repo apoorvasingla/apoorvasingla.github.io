@@ -179,10 +179,6 @@ fieldset[disabled] .btn-xl.active {
     font-size: 24px;
 }
 
-.container {
-    width: 100%;
-}
-
 hr {
     margin: 10px 0;
     border-color: #dcdcdc;
