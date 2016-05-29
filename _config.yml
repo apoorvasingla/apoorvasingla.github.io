@@ -9,7 +9,12 @@ keywords: apoorva, singla, mnit, jaipur, architect
 
 # Build settings
 markdown: kramdown
-permalink: project/:title/
+# permalink: project/:title/
+
+collections:
+    projects:
+        output: true
+        permalink: project/:title
 
 skills:
   - name: Autodesk Autocad

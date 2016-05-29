@@ -25,7 +25,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Projects
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            {% for page in site.posts %}
+                            {% for page in site.projects %}
                                 <li><a href={{ page.url | prepend: site.baseurl }}>{{ page.title }}</a></li>
                             {% endfor %}
                         </ul>
