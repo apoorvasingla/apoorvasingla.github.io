@@ -187,6 +187,14 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
         // Pass data to PhotoSwipe and initialize it
         gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
         gallery.init();
+
+        gallery.listen('initialZoomInEnd', function() {
+            $("html").getNiceScroll().hide();
+        });
+        gallery.listen('initialZoomOut', function() {
+            $("html").getNiceScroll().show();
+        });
+
     };
 
     // loop through all gallery elements and bind events
