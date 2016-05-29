@@ -12,16 +12,10 @@ animations = {
         }).init();
     },
 
-    sticky: function() {
-        // Make section about-project sticky
-        if(!isMobile()) {
-            $('.about-project').sticky();
-        }
-    },
-
     niceScroll: function() {
         // Nicescroll plugin
         $("html").niceScroll();
+        $(".card-panel").niceScroll();
     }
 }
 
