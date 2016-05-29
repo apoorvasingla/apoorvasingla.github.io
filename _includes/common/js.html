@@ -10,7 +10,8 @@
     <script src="{{ "/js/nicescroll.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/wow.min.js" | prepend: site.baseurl }}"></script>
 
-    {% include {{ page.layout }}/js.html %}
-
-    <!-- Custom Theme JavaScript -->
-    <script src="{{ page.layout | prepend: "/js/" | prepend: site.baseurl | append: ".js" }}"></script>
+    {% if page.layout != "default" %}
+        {% include {{ page.layout }}/js.html %}
+    {% else %}
+        {% include home/js.html %}
+    {% endif %}
