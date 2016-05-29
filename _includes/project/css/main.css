@@ -4,6 +4,16 @@
     margin-bottom: 0;
 }
 
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus {
+    background-color: #000;
+}
+
+.dropdown-menu {
+    background-color: #333;
+}
+
 section {
     padding: 25px;
 }
