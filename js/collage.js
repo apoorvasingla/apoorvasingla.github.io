@@ -1,4 +1,4 @@
-var duration = 500;
+var duration = 700;
 var thumbs = {};
 
 changeUrl = function(title, url) {
@@ -14,42 +14,44 @@ id_hash = function(id) {
     return ("#" + id)
 }
 
-getData = function(el) {
-    el = $(el);
-    var id = el.attr('id');
-    var next_id = el.next().attr('id');
-    var [iw, ih] = el.data('size').split('x');
-    return {
-        id: id,
-        iw: iw,
-        ih: ih,
-        id_hash: id_hash(id),
-        next_id: next_id,
-        next_id_hash: id_hash(next_id),
-        width: el.width(),
-        top: el.offset().top,
-        left: el.offset().left,
-        full: el.data('full'),
-        thumb: thumbs[id]
+
+getdata = function(el, attrs) {
+    var el = $(el);
+    var data = {};
+    var get = {
+        top: function() {
+            return el.offset().top
+        },
+        left: function() {
+            return el.offset().left
+        },
+        imgh: function() {
+            return el.data('size').split('x')[0]
+        },
+        imgw: function() {
+            return el.data('size').split('x')[1]
+        },
+        width: function() {
+            return el.width()
+        }
     }
-}
 
-saveThumb = function(el) {
-    thumbs[$(el).attr('id')] = $(el).find('img').attr('src')
-}
-
-finalPosition = function(i, f) {
-    return {
-        top: f.top - i.top,
-        left: f.left - i.left,
-        width: f.width,
-        img_height: i.ih/i.iw*f.width
+    for(var i in attrs) {
+        data[attrs[i]] = eval('get.' + attrs[i] + '()');
     }
+    return data
 }
 
-topLeftAuto = {
-    top: 'auto',
-    left: 'auto'
+animationData = function(i, f) {
+    var id = getdata(i, ['top', 'left', 'imgh', 'imgw']);
+    var fd = getdata(f, ['top', 'left', 'width']);
+    return {
+        top: fd.top - id.top,
+        left: fd.left - id.left,
+        width: fd.width,
+        height: 'auto',
+        img_height: id.imgh/id.imgw*fd.width
+    }
 }
 
 opacity = function(o) {
@@ -58,62 +60,81 @@ opacity = function(o) {
     }
 }
 
-largeToSmall = function(el, a, b, c, d, duration) {
-    el.animate(c, duration, function() {
-        if (b.next_id === undefined) {
-            el.appendTo('#list').css(topLeftAuto);
-        }
-        else {
-            el.insertBefore(b.next_id_hash).css(topLeftAuto);
-        }
-    }).find('.card-image').animate({
-        height : c.img_height
-    }, duration, function() {
-        el.find('img').attr('src', a.thumb);
-    }).find('.overlay').animate(opacity(0), duration);
-}
-
-smallToLarge = function(el, a, b, c, d, duration) {
-    el.animate(d, duration, function() {
-        el.appendTo('#selected').css(topLeftAuto);
-    }).find('.card-image').animate({
-        height: d.img_height
-    }, duration, function() {
-        el.find('img').attr('src', b.full)
+smallToLarge = function(fromEl, toEl, duration) {
+    var ad = animationData(fromEl, toEl);
+    fromEl = $(fromEl);
+    toEl = $(toEl);
+    fromEl.animate(ad, duration, function() {
+        fromEl.appendTo(toEl).css({
+            'top': 'auto',
+            'left': 'auto',
+            'width': toEl.width(),
+            'height': 'auto'
+        });
+        fromEl.find('img').attr('src', fromEl.data('full'))
             .load(function() {
-                $(b.id_hash).find('.overlay').animate(opacity(0), duration);
+                fromEl.find('.overlay').animate(opacity(0), duration);
             });
-    }).find('.overlay').animate(opacity(1), duration);
+    });
+    fromEl.find('p').animate({
+        'font-size': 42
+    }, duration);
+    fromEl.find('.overlay').animate(opacity(1), duration);
+};
+
+largeToSmall = function(fromEl, beforeEl, duration) {
+    var ad = animationData(fromEl, beforeEl);
+    fromEl = $(fromEl);
+    beforeEl = $(beforeEl);
+    fromEl.animate(ad, duration, function() {
+        fromEl.insertBefore(beforeEl).css({
+            'top': 'auto',
+            'left': 'auto',
+            'width': beforeEl.width(),
+            'height': 'auto'
+        });
+        fromEl.find('img').attr('src', thumbs[fromEl.attr('id')]);
+        beforeEl.remove();
+    });
+    fromEl.find('p').animate({
+        'font-size': 15
+    }, duration)
 }
 
-$('.collage-link').each(function(index) {
-    saveThumb(this);
-
-    $(this).click(function(e) {
-        small = $(this);
-
-        large = $(id_hash($('#selected').children().attr('id')));
-        a = getData(large);
-        b = getData(small);
-        c = finalPosition(a,b); //final position of large
-        d = finalPosition(b,a); //final position of small
-
-        if (window.location.hash === '#'+b.id) {
-            return;
-        }
-
-        largeToSmall(large, a, b, c, d, duration);
-        smallToLarge(small, a, b, c, d, duration);
-
-        changeUrl(document.title, b.id_hash);
-        e.preventDefault();
-    })
-})
-
-hash = window.location.hash;
-if (!$(hash).length) {
-    $($('#list').children()[0]).appendTo('#selected').css(topLeftAuto);
+saveThumb = function(el) {
+    thumbs[$(el).attr('id')] = $(el).find('img').attr('src');
 }
-else {
-    $(hash).appendTo('#selected').css(topLeftAuto);
-}
+
+$(document).ready(function() {
+    $('.collage-link').each(function(index) {
+        saveThumb(this);
+
+        $(this).click(function(e) {
+            clickedEl = $(this);
+            $('<div>').attr('id', 'null').insertBefore(clickedEl);
+
+            large = $(id_hash($('#selected').children().attr('id')));
+            if (window.location.hash === id_hash(clickedEl.attr('id'))) {
+                return;
+            }
+
+            smallToLarge(clickedEl, '#selected', duration);
+            largeToSmall(large, '#null', duration);
+
+            changeUrl(document.title, id_hash(clickedEl.attr('id')));
+            e.preventDefault();
+        })
+    });
+
+    hash = window.location.hash;
+    $(hash).appendTo('#selected');
+    if (!$(hash).length) {
+        el = $('#list').children()[0];
+    }
+    else {
+        el = hash;
+    }
+
+    smallToLarge(el, '#selected', 0);
+
+});

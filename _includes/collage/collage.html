@@ -8,15 +8,14 @@
                     <div id="list">
                     {% for collage in site.data.collage %}
                         <div class="card collage-link" id="{{ collage.name }}" data-size="{{ collage.size }}" data-full="{{ site.baseurl }}/img/collage/full/{{ collage.name }}.jpg">
+                            <div class="card-content">
+                                <p>{{ collage.title }}</p>
+                            </div>
                             <div class="card-image">
                                 <div class="overlay">
                                     <div></div>
                                 </div>
                                 <img src="{{ site.baseurl }}/img/collage/thumbs/{{ collage.name }}.jpg">
-                                <span class="card-title">{{ collage.title }}</span>
-                            </div>
-                            <div class="card-content">
-                                <p>{{ collage.content }}</p>
                             </div>
                         </div>
                     {% endfor %}

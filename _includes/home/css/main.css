@@ -9,6 +9,11 @@
     src: url({{ '/font/stylu.ttf' | prepend: site.baseurl }});
 }
 
+@font-face{
+    font-family: "Mistral";
+    src: url({{ '/font/mistral.ttf' | prepend: site.baseurl }});
+}
+
 body {
     overflow-x: hidden;
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
