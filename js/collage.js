@@ -1,12 +1,7 @@
-var hash = window.location.hash;
+var duration = 500;
+var thumbs = {};
 
-hide = function(element) {
-    $(element).hide();
-};
-
-$(hash).appendTo('#selected');
-
-ChangeUrl = function(title, url) {
+changeUrl = function(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
         history.pushState(obj, obj.Title, obj.Url);
@@ -15,88 +10,110 @@ ChangeUrl = function(title, url) {
     }
 }
 
-getPosition = function(el) {
+id_hash = function(id) {
+    return ("#" + id)
+}
+
+getData = function(el) {
+    el = $(el);
+    var id = el.attr('id');
+    var next_id = el.next().attr('id');
+    var [iw, ih] = el.data('size').split('x');
     return {
-        top: $(el).offset().top,
-        left: $(el).offset().left,
-        width: $(el).width()
+        id: id,
+        iw: iw,
+        ih: ih,
+        id_hash: id_hash(id),
+        next_id: next_id,
+        next_id_hash: id_hash(next_id),
+        width: el.width(),
+        top: el.offset().top,
+        left: el.offset().left,
+        full: el.data('full'),
+        thumb: thumbs[id]
     }
 }
 
-var duration = 500;
-var thumbs = {};
+saveThumb = function(el) {
+    thumbs[$(el).attr('id')] = $(el).find('img').attr('src')
+}
+
+finalPosition = function(i, f) {
+    return {
+        top: f.top - i.top,
+        left: f.left - i.left,
+        width: f.width,
+        img_height: i.ih/i.iw*f.width
+    }
+}
+
+topLeftAuto = {
+    top: 'auto',
+    left: 'auto'
+}
+
+opacity = function(o) {
+    return {
+        opacity: o
+    }
+}
+
+largeToSmall = function(el, a, b, c, d, duration) {
+    el.animate(c, duration, function() {
+        if (b.next_id === undefined) {
+            el.appendTo('#list').css(topLeftAuto);
+        }
+        else {
+            el.insertBefore(b.next_id_hash).css(topLeftAuto);
+        }
+    }).find('.card-image').animate({
+        height : c.img_height
+    }, duration, function() {
+        el.find('img').attr('src', a.thumb);
+    }).find('.overlay').animate(opacity(0), duration);
+}
+
+smallToLarge = function(el, a, b, c, d, duration) {
+    el.animate(d, duration, function() {
+        el.appendTo('#selected').css(topLeftAuto);
+    }).find('.card-image').animate({
+        height: d.img_height
+    }, duration, function() {
+        el.find('img').attr('src', b.full)
+            .load(function() {
+                $(b.id_hash).find('.overlay').animate(opacity(0), duration);
+            });
+    }).find('.overlay').animate(opacity(1), duration);
+}
 
 $('.collage-link').each(function(index) {
-    thumbs[$(this).attr('id')] = $(this).find('img').attr('src');
+    saveThumb(this);
 
     $(this).click(function(e) {
-        small = this;
-        id = $(small).attr('id');
+        small = $(this);
 
-        if (window.location.hash === '#'+id) {
+        large = $(id_hash($('#selected').children().attr('id')));
+        a = getData(large);
+        b = getData(small);
+        c = finalPosition(a,b); //final position of large
+        d = finalPosition(b,a); //final position of small
+
+        if (window.location.hash === '#'+b.id) {
             return;
         }
 
+        largeToSmall(large, a, b, c, d, duration);
+        smallToLarge(small, a, b, c, d, duration);
+
+        changeUrl(document.title, b.id_hash);
         e.preventDefault();
-
-        next_id = $(small).next().attr('id');
-
-        large = '#'+$('#selected').children().attr('id');
-        a = getPosition(large);
-        b = getPosition(small);
-        [a.iw, a.ih] = $(large).data("size").split('x');
-        [b.iw, b.ih] = $(small).data("size").split('x');
-
-        $(large).animate({
-            top: b.top - a.top,
-            left: b.left - a.left,
-            width: b.width
-        }, duration , function() {
-            if (next_id === undefined) {
-                $(large).appendTo('#list').css({
-                    top: 'auto',
-                    left: 'auto'
-                });
-            }
-            else {
-                $(large).insertBefore('#'+next_id).css({
-                    top: 'auto',
-                    left: 'auto'
-                });
-            }
-        }).find('.card-image').animate({
-            height : a.ih/a.iw*b.width
-        }, duration, function() {
-            $(large).find('img').attr('src', thumbs[$(large).attr('id')]);
-        }).find('.overlay').animate({
-            opacity: 0
-        }, duration, function() {
-        });
-
-        $(small).animate({
-          top: a.top - b.top,
-          left: a.left - b.left,
-          width: a.width
-        }, duration, function() {
-            $(small).appendTo('#selected').css({
-               top: 'auto',
-               left: 'auto'
-            });
-        }).find('.card-image').animate({
-            height: b.ih/b.iw*a.width
-        }, duration, function() {
-            $(small).find('img').attr('src', $(small).data("full"))
-                .load(function() {
-                    $('#'+id).find('.overlay').animate({
-                        opacity: 0
-                    }, duration);
-                });
-        }).find('.overlay').animate({
-            opacity: 1
-        }, duration, function(){
-        });
-
-        ChangeUrl(document.title, '#'+id);
-
     })
 })
+
+hash = window.location.hash;
+if (!$(hash).length) {
+    $($('#list').children()[0]).appendTo('#selected').css(topLeftAuto);
+}
+else {
+    $(hash).appendTo('#selected').css(topLeftAuto);
+}
