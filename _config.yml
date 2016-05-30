@@ -9,7 +9,7 @@ keywords: apoorva, singla, mnit, jaipur, architect
 
 # Build settings
 markdown: kramdown
-# permalink: project/:title/
+permalink: "/index"
 
 collections:
     projects:
