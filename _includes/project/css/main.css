@@ -79,21 +79,23 @@ section#single-project .about-project {
 }
 
 section#single-project .gallery figure figcaption {
-    display: none;
+    display: block;
     position: absolute;
     top: 0;
     padding: 5px;
     width: 100%;
     height: 100%;
-    color: #ffffff;
+    color: transparent;
     cursor: pointer;
     font-weight: 600;
-    background-color: rgba(0,0,0,0.1);
-    box-shadow: inset 0 67px 50px -30px rgba(0,0,0,0.7);
+    transition: all .3s cubic-bezier(0, 0.5, 0.58, 1);
 }
 
 section#single-project .gallery figure:hover figcaption {
-    display: block;
+    color: #ffffff;
+    transition: all 0.3s cubic-bezier(0, 0.5, 0.58, 1);
+    box-shadow: inset 0 67px 50px -30px rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.1);
 }
 
 @media(min-width: 768px) {
