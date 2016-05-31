@@ -1,5 +1,7 @@
 var duration = 700;
 var thumbs = {};
+var lock = false;
+var xhr;
 
 changeUrl = function(title, url) {
     if (typeof (history.pushState) != "undefined") {
@@ -13,7 +15,6 @@ changeUrl = function(title, url) {
 id_hash = function(id) {
     return ("#" + id)
 }
-
 
 getdata = function(el, attrs) {
     var el = $(el);
@@ -71,10 +72,18 @@ smallToLarge = function(fromEl, toEl, duration) {
             'width': toEl.width(),
             'height': 'auto'
         });
-        fromEl.find('img').attr('src', fromEl.data('full'))
-            .load(function() {
+        xhr = $.ajax({
+            url: fromEl.data('full'),
+            cache: true,
+            processData: false,
+            success: function(data) {
+                if(!$('#list').find(fromEl).length) {
+                    fromEl.find('img').attr('src', fromEl.data('full'));
+                }
                 fromEl.find('.overlay').animate(opacity(0), duration);
-            });
+            }
+        });
+        lock = false;
     });
     fromEl.find('p').animate({
         'font-size': 42
@@ -98,7 +107,8 @@ largeToSmall = function(fromEl, beforeEl, duration) {
     });
     fromEl.find('p').animate({
         'font-size': 15
-    }, duration)
+    }, duration);
+    fromEl.find('.overlay').animate(opacity(0), duration);
 }
 
 saveThumb = function(el) {
@@ -111,13 +121,15 @@ $(document).ready(function() {
 
         $(this).click(function(e) {
             clickedEl = $(this);
-            $('<div>').attr('id', 'null').insertBefore(clickedEl);
 
             large = $(id_hash($('#selected').children().attr('id')));
-            if (window.location.hash === id_hash(clickedEl.attr('id'))) {
+            if (lock === true || window.location.hash === id_hash(clickedEl.attr('id'))) {
                 return;
             }
 
+            lock = true;
+
+            $('<div>').attr('id', 'null').insertBefore(clickedEl);
             smallToLarge(clickedEl, '#selected', duration);
             largeToSmall(large, '#null', duration);
 
@@ -137,4 +149,5 @@ $(document).ready(function() {
 
     smallToLarge(el, '#selected', 0);
 
+    $('html').niceScroll();
 });
