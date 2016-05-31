@@ -151,5 +151,7 @@ $(document).ready(function() {
 
     $('html').niceScroll();
 
-    $('#preloader').fadeOut();
+    $('body').removeAttr('style');
+    $('#preloader').find('div').fadeOut();
+    $('#preloader').delay(350).fadeOut();
 });

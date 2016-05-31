@@ -25,6 +25,8 @@ $(document).ready(function(){
         eval("animations." + animation + "()");
     }
 
-    $('#preloader').fadeOut();
+    $('body').removeAttr('style');
+    $('#preloader').find('div').fadeOut();
+    $('#preloader').delay(350).fadeOut();
 });
 

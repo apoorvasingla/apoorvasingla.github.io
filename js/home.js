@@ -77,6 +77,7 @@ animations = {
         $('.skills-box').waypoint({
             handler: function(event, direction) {
                 $('.progress .progress-bar').progressbar({});
+                console.log('reached');
             },
             offset: '60%'
         });
@@ -142,5 +143,7 @@ $('document').ready(function() {
 
     bindNavMenuClick();
 
-    $('#preloader').fadeOut();
+    $('body').removeAttr('style');
+    $('#preloader').find('div').fadeOut();
+    $('#preloader').delay(350).fadeOut();
 });
