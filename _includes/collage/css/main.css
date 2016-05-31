@@ -43,3 +43,13 @@ section#collage #list .collage-link:hover {
 #list .card-content p {
     font-size: 15px;
 }
+
+@media(max-width: 768px) {
+    #list .card-content p {
+        font-size: 24px;
+    }
+
+    #list .card-content {
+        padding: 15px;
+    }
+}

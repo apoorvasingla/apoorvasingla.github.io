@@ -3,6 +3,8 @@ var thumbs = {};
 var lock = false;
 var xhr;
 
+isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 changeUrl = function(title, url) {
     if (typeof (history.pushState) != "undefined") {
         var obj = { Title: title, Url: url };
@@ -115,7 +117,7 @@ saveThumb = function(el) {
     thumbs[$(el).attr('id')] = $(el).find('img').attr('src');
 }
 
-$(document).ready(function() {
+bindDesktopClick = function() {
     $('.collage-link').each(function(index) {
         saveThumb(this);
 
@@ -135,19 +137,47 @@ $(document).ready(function() {
 
             changeUrl(document.title, id_hash(clickedEl.attr('id')));
             e.preventDefault();
-        })
+        });
     });
+}
 
-    hash = window.location.hash;
-    $(hash).appendTo('#selected');
-    if (!$(hash).length) {
-        el = $('#list').children()[0];
+bindMobileClick = function() {
+    $('.collage-link').each(function(index){
+        $(this).click(function(e) {
+            el = $(this);
+            el.find('.overlay').animate(opacity(1), duration);
+            xhr = $.ajax({
+                url: el.data('full'),
+                cache: true,
+                processData: false,
+                success: function(data) {
+                    el.find('.overlay').animate(opacity(0), duration);
+                    el.find('img').attr('src', el.data('full'));
+                    el.unbind('click');
+                }
+            });
+        })
+    })
+}
+
+$(document).ready(function() {
+    if (isMobile) {
+        bindMobileClick();
     }
     else {
-        el = hash;
-    }
+        bindDesktopClick();
 
-    smallToLarge(el, '#selected', 0);
+        hash = window.location.hash;
+        $(hash).appendTo('#selected');
+        if (!$(hash).length) {
+            el = $('#list').children()[0];
+        }
+        else {
+            el = hash;
+        }
+        smallToLarge(el, '#selected', 0);
+
+    }
 
     $('html').niceScroll();
 
