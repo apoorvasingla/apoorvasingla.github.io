@@ -23,7 +23,7 @@ section#collage #list .collage-link:hover {
     float: left;
     width: 100%;
     height: 100%;
-    background-color: rgba(256, 256, 256, 0.8);
+    background-color: rgba(256, 256, 256, 0.7);
     z-index: 5;
     opacity: 0;
 }
@@ -31,7 +31,8 @@ section#collage #list .collage-link:hover {
 .overlay div {
     width: 100%;
     height: 100%;
-    background: url('/img/preloader.gif') center no-repeat;
+    background: url({{ "/img/preloader/img.gif" | prepend: site.baseurl}}) center no-repeat;
+    background-size: 10%;
 }
 
 .card-content p {
