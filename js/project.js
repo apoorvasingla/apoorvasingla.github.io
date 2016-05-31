@@ -24,9 +24,10 @@ $(document).ready(function(){
     for(var animation in animations) {
         eval("animations." + animation + "()");
     }
+});
 
+$(window).load(function() {
     $('body').removeAttr('style');
     $('#preloader').find('div').fadeOut();
     $('#preloader').delay(350).fadeOut();
 });
-
