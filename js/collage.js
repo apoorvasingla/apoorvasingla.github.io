@@ -150,4 +150,6 @@ $(document).ready(function() {
     smallToLarge(el, '#selected', 0);
 
     $('html').niceScroll();
+
+    $('#preloader').fadeOut();
 });

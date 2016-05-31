@@ -24,5 +24,7 @@ $(document).ready(function(){
     for(var animation in animations) {
         eval("animations." + animation + "()");
     }
+
+    $('#preloader').fadeOut();
 });
 
