@@ -122,6 +122,7 @@ bindDesktopClick = function() {
         saveThumb(this);
 
         $(this).click(function(e) {
+            e.preventDefault();
             clickedEl = $(this);
 
             large = $(id_hash($('#selected').children().attr('id')));
@@ -136,7 +137,6 @@ bindDesktopClick = function() {
             largeToSmall(large, '#null', duration);
 
             changeUrl(document.title, id_hash(clickedEl.attr('id')));
-            e.preventDefault();
         });
     });
 }
@@ -144,6 +144,7 @@ bindDesktopClick = function() {
 bindMobileClick = function() {
     $('.collage-link').each(function(index){
         $(this).click(function(e) {
+            e.preventDefault();
             el = $(this);
             el.find('.overlay').animate(opacity(1), duration);
             xhr = $.ajax({
@@ -176,7 +177,7 @@ $(document).ready(function() {
             el = hash;
         }
         smallToLarge(el, '#selected', 0);
-
+        changeUrl(document.title, id_hash($(el).attr('id')));
     }
 
     $('html').niceScroll();
