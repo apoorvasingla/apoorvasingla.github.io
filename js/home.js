@@ -124,7 +124,9 @@ bindUpDownScroll = function(){
 
 bindNavMenuClick = function(){
     $('.navbar-collapse ul li a').click(function() {
-        navbar.menu.hide();
+        if (isMobile) {
+            navbar.menu.hide();
+        }
     });
 }
 
