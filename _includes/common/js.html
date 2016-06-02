@@ -10,6 +10,9 @@
     <script src="{{ "/js/nicescroll.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/wow.min.js" | prepend: site.baseurl }}"></script>
 
+    <!-- Google Analytics -->
+    <script src="{{ "/js/analytics.js" | prepend: site.baseurl }}"></script>
+
     {% if page.layout != "default" %}
         {% include {{ page.layout }}/js.html %}
     {% else %}
