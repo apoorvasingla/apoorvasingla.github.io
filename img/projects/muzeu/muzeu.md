@@ -9,50 +9,44 @@ images:
  - file: Concept.jpg
    title: Concept
    size: 1900x1344
- - file: Concept-2.jpg
-   title: Concept
-   size: 1900x1344
  - file: Site-Plan.jpg
    title: Site Plan
    size: 1900x1344 
  - file: Ground-Floor.jpg
    title: Ground Floor Plan
    size: 1900x1344
- - file: Diamond-Plan.jpg
-   title: Diamond Plan-2,4,6,8<sup>th<sup> Floor
+ - file: First-Floor.jpg
+   title: First Floor Plan
    size: 1900x1344
- - file: Square-Plan.jpg
-   title: Square Plan-1,3,5,7,9<sup>th<sup> Floor
+ - file: Second-Floor.jpg
+   title: Second Floor Plan
    size: 1900x1344
- - file: Pent-House.jpg
-   title: Pent House-10<sup>th<sup> Floor
+ - file: Third-Floor.jpg
+   title: Third Floor Plan
    size: 1900x1344
- - file: Terrace-Plan.jpg
-   title: Terrace Plan
+ - file: Structure.jpg
+   title: Structure Plan
    size: 1900x1344
- - file: Parking.jpg
-   title: Basement Plan
-   size: 1900x1344
- - file: Section.jpg
+ - file: Section-1.jpg
    title: Section
    size: 1900x1344
- - file: Site-View.jpg
-   title: Site View
+ - file: Section-2.jpg
+   title: Section
    size: 1900x1344
- - file: Elevation.jpg
+ - file: Elevation-1.jpg
    title: Elevation
    size: 1900x1344
  - file: Elevation-2.jpg
    title: Elevation
    size: 1900x1344
- - file: Landscaping-View.jpg
-   title: Landscaping View
+ - file: Museum.jpg
+   title: Museum
    size: 1900x1344
- - file: Landscaping-View-2.jpg
-   title: Landscaping View
+ - file: Auditorium.jpg
+   title: Auditorium
    size: 1900x1344
- - file: View.jpg
-   title: View
+ - file: Entrance.jpg
+   title: Entrance Building
    size: 1900x1344
  - file: View-1.jpg
    title: View
@@ -61,12 +55,6 @@ images:
    title: View
    size: 1900x1344
  - file: View-3.jpg
-   title: View
-   size: 1900x1344
- - file: View-4.jpg
-   title: View
-   size: 1900x1344
- - file: View-5.jpg
    title: View
    size: 1900x1344
 
