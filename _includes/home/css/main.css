@@ -184,6 +184,10 @@ fieldset[disabled] .btn-xl.active {
     font-size: 24px;
 }
 
+.btn-floating {
+    background-color: #{{ site.data.template.color.primary }};
+}
+
 hr {
     margin: 10px 0;
     border-color: #dcdcdc;

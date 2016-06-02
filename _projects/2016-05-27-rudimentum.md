@@ -1,13 +1,13 @@
 ---
 
 layout: project
-title: rudimentum
+title: Rudimentum
 subtitle: Settlement of 40 Scientists, Mars
 project-date: Secondary Trophy, Zonals’13
 description: Settlement of 40 Scientists, Mars
 images:
  - file: mars.jpg
-   title: Mars
+   title: Presented Sheet
    size: 2000x1415
 
 ---
