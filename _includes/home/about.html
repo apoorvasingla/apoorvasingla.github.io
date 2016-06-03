@@ -13,7 +13,7 @@
                             {% assign inverted = forloop.index | modulo: 2 %}
                             <li class="{% if inverted == 0 %}timeline-inverted{% endif %} wow zoomIn" data-wow-duration="0.7s" data-wow-offset="100">
                                 <div class="timeline-image">
-                                    <img class="img-circle img-responsive" src="img/about/1.jpg">
+                                    <img class="img-circle img-responsive" src="{{ site.baseurl }}/img/about/{{ item.image }}">
                                 </div>
                                 <div class="timeline-panel">
                                     <div class="timeline-heading">

@@ -2,14 +2,18 @@ items:
   - date: 2008-2009
     heading: 10<sup>th</sup> Grade, CBSE
     academic: Scored 92%
+    image: 1.jpg
   - date: 2010-2011
     heading: 12<sup>th</sup> Grade, CBSE
     academic: Scored 95% in PCM with physical education as optional subject
+    image: 2.jpg
   - date: 2011
     heading: National and State Competitions
     achievement: Scored AIR 103 in AIEEE’11 for B. Arch<br>Scored 18th position in Rajasthan Pre Entrance Test’11<br>Scored AIR 16398 in AIEEE’11 for B. Tech
+    image: 3.jpg
   - date: 2011-2016
     heading: B.Arch, MNIT
     experience: 6 months training at Redbee Design And Development, Gurgaon<br>Summer training at Archimatics, Sriganganagar<br>Camp for conservation of ORCHHA FORT, Orchha, MP
     achievement: Student Placement coordinator of MNIT, Jaipur<br>Scored AIR 12 in GATE’16 for Architecture and Planning
+    image: 4.jpg
 last-item: Became<br>an<br>ARCHITECT
