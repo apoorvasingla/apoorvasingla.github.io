@@ -77,7 +77,6 @@ animations = {
         $('.skills-box').waypoint({
             handler: function(event, direction) {
                 $('.progress .progress-bar').progressbar({});
-                console.log('reached');
             },
             offset: '60%'
         });
