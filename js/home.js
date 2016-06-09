@@ -129,7 +129,10 @@ bindNavMenuClick = function(){
     });
 }
 
-$('document').ready(function() {
+$(window).load(function() {
+    $('body').removeAttr('style');
+    $('#preloader').find('div').fadeOut();
+    $('#preloader').delay(350).fadeOut();
 
     // Load all animations
     for(var animation in animations) {
@@ -143,11 +146,4 @@ $('document').ready(function() {
     bindUpDownScroll();
 
     bindNavMenuClick();
-
-});
-
-$(window).load(function() {
-    $('body').removeAttr('style');
-    $('#preloader').find('div').fadeOut();
-    $('#preloader').delay(350).fadeOut();
 });

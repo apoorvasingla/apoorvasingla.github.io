@@ -161,7 +161,11 @@ bindMobileClick = function() {
     })
 }
 
-$(document).ready(function() {
+$(window).load(function() {
+    $('body').removeAttr('style');
+    $('#preloader').find('div').fadeOut();
+    $('#preloader').delay(350).fadeOut();
+
     if (isMobile) {
         bindMobileClick();
     }
@@ -181,10 +185,4 @@ $(document).ready(function() {
     }
 
     $('html').niceScroll();
-});
-
-$(window).load(function() {
-    $('body').removeAttr('style');
-    $('#preloader').find('div').fadeOut();
-    $('#preloader').delay(350).fadeOut();
 });
